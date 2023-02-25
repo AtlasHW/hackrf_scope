@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>oscilloscope</class>
+ <widget class="QDialog" name="oscilloscope">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>867</width>
+    <height>655</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="3,1">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_23" stretch="20,1,0">
+     <item>
+      <widget class="ScopeView" name="scopeview" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>600</width>
+         <height>400</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>30</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="PreView" name="preview" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_22">
+     <item>
+      <widget class="QFrame" name="frame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <widget class="QPushButton" name="singleBTN">
+          <property name="text">
+           <string>Single</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="runBTN">
+          <property name="text">
+           <string>RUN/STOP</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_3">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_21">
+        <item>
+         <widget class="QLabel" name="label_12">
+          <property name="text">
+           <string>Trigger</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_19">
+            <item>
+             <widget class="Encoder" name="triggerENC">
+              <property name="wrapping">
+               <bool>true</bool>
+              </property>
+              <property name="notchesVisible">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="triggerBTN">
+              <property name="text">
+               <string>&gt;|&lt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_20">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Channel</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="triggerCH">
+              <item>
+               <property name="text">
+                <string>CH1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>CH2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>CH3</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>CH4</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>Mode</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="triggerMode">
+              <item>
+               <property name="text">
+                <string>Normal</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Auto</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>Direct</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="triggerDirect">
+              <item>
+               <property name="text">
+                <string>Rise edge</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Fall edge</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Rise and Fall</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_18">
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Time</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_16">
+            <item>
+             <widget class="QLabel" name="label_15">
+              <property name="text">
+               <string>Scale</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Encoder" name="timescaleENC">
+              <property name="wrapping">
+               <bool>true</bool>
+              </property>
+              <property name="notchesVisible">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="timeScaleBTN">
+              <property name="text">
+               <string>&gt;|&lt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_17">
+            <item>
+             <widget class="QLabel" name="label_16">
+              <property name="text">
+               <string>Offset</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Encoder" name="timeoffsetENC">
+              <property name="wrapping">
+               <bool>true</bool>
+              </property>
+              <property name="notchesVisible">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="timeOffsetBTN">
+              <property name="text">
+               <string>&gt;|&lt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="CH1">
+        <attribute name="title">
+         <string>CH1</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QCheckBox" name="CH1_EN">
+           <property name="text">
+            <string>CH1 EN</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="tristate">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>Scale</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH1scaleENC">
+               <property name="pageStep">
+                <number>1</number>
+               </property>
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH1ScaleBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Offset</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH1offsetENC">
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH1OffsetBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="CH2">
+        <attribute name="title">
+         <string>CH2</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_13">
+         <item>
+          <widget class="QCheckBox" name="CH2_EN">
+           <property name="text">
+            <string>CH2 EN</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="tristate">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Scale</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH2scaleENC">
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH2ScaleBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Offset</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH2offsetENC">
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH2OffsetBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="CH3">
+        <attribute name="title">
+         <string>CH3</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_14">
+         <item>
+          <widget class="QCheckBox" name="CH3_EN">
+           <property name="text">
+            <string>CH3 EN</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+           <property name="tristate">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_10">
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Scale</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH3scaleENC">
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH3ScaleBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>Offset</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH3offsetENC">
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH3OffsetBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="CH4">
+        <attribute name="title">
+         <string>CH4</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_15">
+         <item>
+          <widget class="QCheckBox" name="CH4_EN">
+           <property name="text">
+            <string>CH4 EN</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+           <property name="tristate">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_12">
+             <item>
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>Scale</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH4scaleENC">
+               <property name="pageStep">
+                <number>1</number>
+               </property>
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH4ScaleBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_11">
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>Offset</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Encoder" name="CH4offsetENC">
+               <property name="wrapping">
+                <bool>true</bool>
+               </property>
+               <property name="notchesVisible">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="CH4OffsetBTN">
+               <property name="text">
+                <string>&gt;|&lt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Encoder</class>
+   <extends>QDial</extends>
+   <header>encoder.h</header>
+   <slots>
+    <signal>encoderOutput(int)</signal>
+    <slot>resetValue()</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>ScopeView</class>
+   <extends>QWidget</extends>
+   <header location="global">scopeview.h</header>
+   <container>1</container>
+   <slots>
+    <signal>timeDrag(int)</signal>
+    <slot>changeTimeLocation(int)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>PreView</class>
+   <extends>QWidget</extends>
+   <header location="global">preview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+ <slots>
+  <slot>timeDragRes(int)</slot>
+ </slots>
+</ui>

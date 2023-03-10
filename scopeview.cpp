@@ -185,6 +185,21 @@ void ScopeView::setBottomLabelBuffer(int index, QString label)
         bottom_label4 = label;
 }
 
+void ScopeView::setTimeLineShow(const bool value)
+{
+    time_line_show = value;
+}
+
+void ScopeView::setTriggerLineShow(const bool value)
+{
+    trigger_line_show = value;
+}
+
+void ScopeView::setCHLineShow(uint8_t value)
+{
+    CH_line_show = value;
+}
+
 void ScopeView::paintEvent(QPaintEvent *event)
 {
 #ifdef __SCOPEVIEW_DEBUG
@@ -1018,7 +1033,7 @@ void ScopeView::changeCHOffset(int channel, int offset)
     update();
 }
 
-void ScopeView::changeData(uint8_t changeMask, QList<QVector<int> > data)
+void ScopeView::changeData(uint8_t changeMask, QList<QVector<int16_t> > data)
 {
     int index = 0;
     if(changeMask & 0x01)

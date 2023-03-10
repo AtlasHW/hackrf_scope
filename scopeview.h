@@ -51,11 +51,15 @@ public:
     //The function will not update widget, the result show in next data update
     void setBottomLabelBuffer(int index,QString label);
 
+    void setTimeLineShow(const bool value);
+    void setTriggerLineShow(const bool value);
+    void setCHLineShow(uint8_t value);
+
 public slots:
     void changeTimeLocation(int location);
     void changeTriggerLocation(int location);
     void changeCHOffset(int channel, int offset);
-    void changeData(uint8_t changeMask, QList<QVector<int> > data);
+    void changeData(uint8_t changeMask, QList<QVector<int16_t> > data);
 
 protected:
     void paintEvent(QPaintEvent *event) override;
@@ -88,10 +92,10 @@ private:
     int CH4_offset;
     uint8_t CH_line_show; //As same as 'CH_EN'
 
-    QVector<int> CH1_draw_buffer;
-    QVector<int> CH2_draw_buffer;
-    QVector<int> CH3_draw_buffer;
-    QVector<int> CH4_draw_buffer;
+    QVector<int16_t> CH1_draw_buffer;
+    QVector<int16_t> CH2_draw_buffer;
+    QVector<int16_t> CH3_draw_buffer;
+    QVector<int16_t> CH4_draw_buffer;
 
     QRect Time_drag_rect;
     int time_drag_start_x;

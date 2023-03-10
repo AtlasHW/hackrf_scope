@@ -10,16 +10,25 @@
 
 #include "scopeview.h"
 
+#define CH1_MASK 0x01
+#define CH2_MASK 0x02
+#define CH3_MASK 0x03
+#define CH4_MASK 0x04
+
+#define PRE_SAMPLE_COUNT 10000
+#define POST_SAMPLE_COUNT 10000
+
 typedef struct{
-    int ch_count;
+    uint8_t ch_mask;
     int16_t *ch1_data;
     int16_t *ch2_data;
     int16_t *ch3_data;
     int16_t *ch4_data;
     size_t buffer_size;
-    size_t update_index;
-    size_t pre_index;
-    size_t update_count;
+    size_t head;
+    size_t tail;
+    size_t valid_length;
+    bool overflow_flag;
 } scope_ch_data_t;
 
 typedef enum{
@@ -58,6 +67,23 @@ typedef struct{
     trigger_mode_t trigger_mode     = mode_auto;
 } trigger_setting_t;
 
+//the group 2 paraments for trigger
+//dealed by system form group 1 trigger setting
+//used by check_trigger function
+typedef struct{
+      int16_t *trigger_data;
+      int16_t trigger_level;
+      int trigger_gap;
+      bool above_level_flag; //Input data value above trigger level flag
+      bool rise_flag;
+      bool fall_flag;
+      bool auto_flag;
+
+      int auto_trigger_gap = 1000;
+
+      bool check_trigger_flag;
+} trigger_setting2_t;
+
 typedef struct{
     int channel_on;
     float channel_scale;
@@ -65,6 +91,25 @@ typedef struct{
     int channel_scale_code;
 } channel_setting_t;
 
+#define SCOPE_L2_CACHE_LEN 10000000
+
+typedef struct {
+    int16_t CH_buffer[4][SCOPE_L2_CACHE_LEN];
+    const size_t buffer_size = SCOPE_L2_CACHE_LEN;
+    size_t tail;
+    size_t head;
+    size_t trigger_location;
+    size_t next_trigger_check_location;
+
+    int save_count;
+    int auto_trigger_count;
+
+    bool show_valid;
+    bool fetch_finish;
+
+    size_t frame_head;
+    size_t frame_tail;
+} scope_L2_cache_t;
 
 namespace Ui {
 class oscilloscope;
@@ -122,17 +167,26 @@ private slots:
     void CH3ScaleSet(int value);
     void CH4ScaleSet(int value);
 
+    void on_singleBTN_clicked();
+
+    void on_runBTN_clicked();
+
 private://veriate
     Ui::oscilloscope *ui;
 
     ScopeView *scopeview;
 
-    int time_offset;
+    QVector<int16_t> CH1_point_buffer;
+    QVector<int16_t> CH2_point_buffer;
+    QVector<int16_t> CH3_point_buffer;
+    QVector<int16_t> CH4_point_buffer;
 
-    QVector<int> CH1_point_buffer;
-    QVector<int> CH2_point_buffer;
-    QVector<int> CH3_point_buffer;
-    QVector<int> CH4_point_buffer;
+    scope_L2_cache_t *L2_cache;
+
+    trigger_setting2_t trigger;
+
+    float oversample_rate; //the times of L2 cache with display buffer data count
+    float datagap; //the data gap from raw to L2 cache
 
     //Timer for scope image update
     QTimer *view_update_timer;
@@ -145,19 +199,20 @@ private://veriate
     channel_setting_t CH4_setting;
 
     run_status_t run_status;
-
-    size_t rec_count;
-
-    size_t trigger_location;
+    bool single_trigger_flag;
 
 private://funtion
 
-    int check_trigger(scope_ch_data_t *scope_ch_data,size_t *trigger_location);
+    bool check_trigger(size_t index);
 
     void update_trigger_label();
+    void update_trigger_location();
 
     float time_trans(int value);
     float level_trans(int value);
+
+    void update_time_parament();
+    void update_trigger_parament(scope_ch_data_t *ch_data);
 
 };
 

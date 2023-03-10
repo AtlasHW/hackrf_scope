@@ -33,6 +33,8 @@ private:
     int hackrf_init_t();
     int hackrf_close_t();
 
+    int clear_rxch_buff(scope_ch_data_t *ch_data);
+
 private:
     Ui::MainWindow *ui;
 
@@ -41,6 +43,8 @@ private:
     oscilloscope *scope;
 
     QTimer *datarx_timer;
+
+    bool device_run;
 
 signals:
     void rx_data_update(scope_ch_data_t*);

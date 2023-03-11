@@ -3,7 +3,7 @@ Hello everyone, This is my first github project. It is a virtual oscilloscope to
 
 ![HackRF One](https://raw.github.com/mossmann/hackrf/master/docs/images/HackRF-One-fd0-0009.jpeg)
 
-![HackRF scope](./doc/picture/mainview.jpg?raw=true)
+![HackRF scope](https://raw.githubusercontent.com/AtlasHW/hackrf_scope/main/doc/picture/mainview.jpg)
 
 
 Next work:

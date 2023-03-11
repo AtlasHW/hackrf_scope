@@ -3,6 +3,8 @@ Hello everyone, This is my first github project. It is a virtual oscilloscope to
 
 ![HackRF One](https://raw.github.com/mossmann/hackrf/master/docs/images/HackRF-One-fd0-0009.jpeg)
 
+![HackRF scope](./doc/picture/mainview.jpg?raw=true)
+
 
 Next work:
 <1> To adjust time offest and time scale in stop status.

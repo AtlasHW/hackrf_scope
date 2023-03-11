@@ -1,7 +1,7 @@
 Hello everyone, This is my first github project. It is a virtual oscilloscope to display the wave of hackrf one by hackrf API. It designed by Qt and it didn't use QChart class.
 
 
-![mainview](./doc/picture/mainview.jpg)
+![mainview](https://github.com/greatscottgadgets/hackrf/blob/master/docs/images/trigger-pins.png)
 
 Next work:
 <1> To adjust time offest and time scale in stop status.
